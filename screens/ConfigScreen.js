@@ -6,11 +6,11 @@ export default function ConfigScreen({ onStartGame }) {
   const [selectedColors, setSelectedColors] = useState(6);
 
   const sizes = [8, 12, 16, 20];
-  const colors = [4, 5, 6];
+  const colors = [4, 6, 8];
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>ColorFlow</Text>
+      <Text style={styles.title1}>Color<Text style={styles.title2}>Flow</Text></Text>
 
       {/* GRID SIZE */}
       <Text style={styles.label}>GRID SIZE</Text>
@@ -81,12 +81,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
-  title: {
-    fontSize: 32,
+  title1: {
+    fontSize: 40,
+    fontWeight: "700",
+    color: "#ffffff",
+    marginBottom: 50,
+    textAlign : 'center'
+  },
+  
+  title2 : {
+     fontSize: 40,
     fontWeight: "700",
     color: "#2563eb",
     marginBottom: 50,
-    textAlign : 'center'
   },
 
   label: {

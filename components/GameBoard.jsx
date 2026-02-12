@@ -24,10 +24,10 @@ export default function GameBoard({ gridSize, colorCount }) {
         isAnimating,
     } = useFloodGame(gridSize, colorCount);
 
-    const GAP = 5;
+    const GAP = 4;
     const { width } = useWindowDimensions();
     const boardMaxWidth = Math.min(width * 0.9, 500);
-    const cellSize = (boardMaxWidth - GAP * 2 * gridSize) / gridSize;
+    const cellSize = (boardMaxWidth - GAP * 1.8 * gridSize) / gridSize;
 
     const totalCells = gridSize * gridSize;
 
@@ -42,7 +42,10 @@ export default function GameBoard({ gridSize, colorCount }) {
 
 
   return (
-    <LinearGradient colors={["#0f172a", "#020617"]} style={styles.container}>
+    <LinearGradient colors={["#0f172a", "#020617"]}
+                    start={{x:0.1, y:0}} 
+                    end={{x:0.9, y:1}}
+                    style={styles.container}>
       
       {/* HEADER */}
         <View style={styles.header}>
@@ -159,6 +162,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#0b1220",
         padding: 16,
         borderRadius: 28,
+        alignItems: 'center',
+        justifyContent : 'center',
 
         shadowColor: "#000",
         shadowOpacity: 0.8,

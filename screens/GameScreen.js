@@ -5,15 +5,13 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function GameScreen({ gridSize, colorCount, onBack }) {
 
-    console.log(' gameBoard  :', GameBoard )
-
   return (
     <View style={styles.container}>
       
       {/* TOP NAV */}
       <View style={styles.topBar}>
         <TouchableOpacity onPress={onBack} style={styles.iconBtn}>
-          <Ionicons name="arrow-back" size={24} color="#e2e8f0" />
+          <Ionicons name="arrow-back-outline" size={24} color="#e2e8f0" />
         </TouchableOpacity>
 
         <View style={{ width: 24 }} /> 

@@ -22,6 +22,7 @@ export const useFloodGame = (gridSize, colorCount) => {
     setHistory([deepClone(g)]);
   }, [gridSize, colorCount]);
 
+
   // Recreate grid when size or color changes
   useEffect(() => {
     newGame();
@@ -32,6 +33,8 @@ export const useFloodGame = (gridSize, colorCount) => {
 
         const startColor = grid[0][0];
         if (startColor === newColor) return;
+
+        setHistory((h) => [...h, deepClone(grid)]);
 
         const size = grid.length;
         const visited = Array.from({ length: size }, () =>
@@ -97,15 +100,16 @@ export const useFloodGame = (gridSize, colorCount) => {
     }, [grid, isAnimating]);
 
   const undo = useCallback(() => {
-    setHistory((h) => {
-      if (h.length <= 1) return h;
+    console.log(history.length);
+    if (history.length <= 1) return;
 
-      const next = h.slice(0, -1);
-      setGrid(deepClone(next[next.length - 1]));
-      setMoves((m) => Math.max(0, m - 1));
-      return next;
-    });
-  }, []);
+    const nextHistory = history.slice(0, -1);
+    const previousGrid = deepClone(nextHistory[nextHistory.length - 1]);
+
+    setHistory(nextHistory);
+    setGrid(previousGrid);
+    setMoves((m) => Math.max(0, m - 1));
+  }, [history]);
 
   const connectedInfo = useMemo(
     () => getConnectedRegionInfo(grid),

@@ -1,97 +1,132 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# ColorFlow 🎨
 
-# Getting Started
+A customizable strategy-based color flood puzzle game built with React Native.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+ColorFlow challenges players to strategically flood a grid starting from the top-left tile, unifying the board into a single color within limited moves. The game supports multiple grid sizes and difficulty levels, offering scalable complexity.
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 🚀 Features (V1.0.0)
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- 🎯 Dynamic grid sizes (8×8, 12×12, 16×16, 20×20)
+- 🎨 Adjustable difficulty (4, 6, or 8 colors)
+- 🔄 Undo functionality with history stack
+- 🔁 Restart game option
+- ✨ Smooth animated flood propagation
+- 📱 Responsive layout for different screen sizes
+- 🔙 Back navigation support
+- 🧠 Move counter with win detection
 
-```sh
-# Using npm
-npm start
+---
 
-# OR using Yarn
-yarn start
+## 🧩 Gameplay
+
+- The game starts from the top-left tile.
+- Selecting a color floods all connected tiles of the same color.
+- The goal is to unify the entire board within a limited number of moves.
+- Larger grids and more colors increase difficulty.
+
+---
+
+## 🛠 Tech Stack
+
+- React Native
+- JavaScript
+- Android (Gradle build system)
+
+---
+
+## 🧠 Technical Highlights
+
+This project demonstrates:
+
+- Breadth-First Search (BFS) flood fill algorithm
+- Deep cloning strategy for immutable state updates
+- Custom undo history stack implementation
+- Optimized grid rendering
+- Animated state transitions
+- Android release signing configuration
+- Production AAB generation for Play Store
+
+---
+
+## 📁 Project Structure
+
+```
+/android
+/src
+  /components
+  /screens
+  /utils
+App.js
 ```
 
-## Step 2: Build and run your app
+Core logic includes:
+- Flood algorithm
+- Move tracking
+- History stack management
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+---
 
-### Android
+## 🏗 Installation
 
-```sh
-# Using npm
-npm run android
+Clone the repository:
 
-# OR using Yarn
-yarn android
+```bash
+git clone https://github.com/yourusername/fill-up.git
 ```
 
-### iOS
+Install dependencies:
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```bash
+npm install
 ```
 
-Then, and every time you update your native dependencies, run:
+Run on Android:
 
-```sh
-bundle exec pod install
+```bash
+npx react-native run-android
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+---
 
-```sh
-# Using npm
-npm run ios
+## 📦 Build Release (Android)
 
-# OR using Yarn
-yarn ios
+From the `android` directory:
+
+```bash
+.\gradlew bundleRelease
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+Output file:
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```
+android/app/build/outputs/bundle/release/app-release.aab
+```
 
-## Step 3: Modify your app
+---
 
-Now that you have successfully run the app, let's make changes!
+## 🎯 Learning Outcomes
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+This project was built to:
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+- Understand React Native performance constraints
+- Implement algorithm-based gameplay logic
+- Learn Android app signing and release pipeline
+- Publish an application to Google Play Store
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+---
 
-## Congratulations! :tada:
+## 📈 Future Improvements (Planned V2)
 
-You've successfully run and modified your React Native App. :partying_face:
+- Difficulty balancing improvements
+- Time-based challenge mode
+- Sound and haptic feedback
+- Performance optimization for larger grids
+- UI refinements
 
-### Now what?
+---
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## 📄 License
 
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+This project is licensed under the MIT License.

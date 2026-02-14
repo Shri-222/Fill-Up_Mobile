@@ -73,7 +73,7 @@ Core logic includes:
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/fill-up.git
+git clone https://github.com/Shri-222/Fill-Up_Mobile.git
 ```
 
 Install dependencies:
